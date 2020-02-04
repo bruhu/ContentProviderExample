@@ -3,6 +3,7 @@ package bruhu.contentproviderexample.com
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
                 // using cursor trying to get the name - we use getColumnIndex since we don't know the index number
                 val name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
                 // Logging the name value
+                Log.d("getContacts", "Name: " + name)
 
             }while(cursor.moveToNext())
         }
