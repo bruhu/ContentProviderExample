@@ -1,5 +1,6 @@
 package bruhu.contentproviderexample.com
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -9,9 +10,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    // to create ArrayAdapter we need context. We create it here and initialize it on onCreate
+    lateinit var context : Context
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // initialize context
+        context = this
         getContacts()
     }
 
@@ -37,6 +43,8 @@ class MainActivity : AppCompatActivity() {
             println(cursor)
             cursor.close()
         }
-        autocomplete.setAdapter(ArrayAdapter())
+        // list with default sample list from Android and setting it as adapter for the autcomplete textview
+        autocomplete.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, Contacts))
+        autocomplete.threshold = 1
     }
 }
