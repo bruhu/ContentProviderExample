@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                Toast.makeText(context, "Selected Contact: " + parent.getItemAtPosition(position))
+                Toast.makeText(context, "Selected Contact: " + parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show()
             }
         }
     }
