@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         getContacts()
     }
 
+    /*Add permission to access contacts manually and filter getContacts in the Logcat to see the result*/
+
     fun getContacts(){
         // this will keep the data that we will later request
         // CONTENT_URI has the URI to access the contacts
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity() {
                 // Logging the name value
                 Log.d("getContacts", "Name: " + name)
             }while(cursor.moveToNext())
+            println(cursor)
             cursor.close()
         }
     }
