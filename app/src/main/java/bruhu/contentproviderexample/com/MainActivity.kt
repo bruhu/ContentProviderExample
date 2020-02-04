@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        getContacts()
     }
 
     fun getContacts(){
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity() {
                 val name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
                 // Logging the name value
                 Log.d("getContacts", "Name: " + name)
-
             }while(cursor.moveToNext())
         }
     }
