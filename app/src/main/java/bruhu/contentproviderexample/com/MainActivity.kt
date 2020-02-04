@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     /*Add permission to access contacts manually and filter getContacts in the Logcat to see the result*/
 
     fun getContacts(){
+        // mutable list to add the contact name
+        val Contacts : MutableList<String> = ArrayList()
         // this will keep the data that we will later request
         // CONTENT_URI has the URI to access the contacts
         val cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null)
@@ -27,6 +29,8 @@ class MainActivity : AppCompatActivity() {
                 val name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
                 // Logging the name value
                 Log.d("getContacts", "Name: " + name)
+                // add contact name to the list
+                Contacts.add(name)
             }while(cursor.moveToNext())
             println(cursor)
             cursor.close()
