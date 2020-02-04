@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
                 // Logging the name value
                 Log.d("getContacts", "Name: " + name)
             }while(cursor.moveToNext())
+            cursor.close()
         }
     }
 }
