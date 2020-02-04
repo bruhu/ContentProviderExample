@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
+import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +37,6 @@ class MainActivity : AppCompatActivity() {
             println(cursor)
             cursor.close()
         }
-        autocomplete
+        autocomplete.setAdapter(ArrayAdapter())
     }
 }
