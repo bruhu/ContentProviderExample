@@ -15,5 +15,9 @@ class MainActivity : AppCompatActivity() {
         // this will keep the data that we will later request
         // CONTENT_URI has the URI to access the contacts
         val cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null)
+        // check if cursor is not null and if so, point to the first item
+        if(cursor != null && cursor.moveToFirst()){
+            // use do while looping the cursor until it has next value
+        }
     }
 }
