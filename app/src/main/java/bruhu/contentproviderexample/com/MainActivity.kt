@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -46,5 +49,17 @@ class MainActivity : AppCompatActivity() {
         // list with default sample list from Android and setting it as adapter for the autcomplete textview
         autocomplete.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, Contacts))
         autocomplete.threshold = 1
+
+        // click listener for the autocomplete textview, so on selecting any item we can store the result inside another variable
+        autocomplete.onItemClickListener = object : AdapterView.OnItemClickListener{
+            override fun onItemClick(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                Toast.makeText(context, "Selected Contact: " + parent.getItemAtPosition(position))
+            }
+        }
     }
 }
